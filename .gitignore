@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# config
+/src/app/constant.ts
+# will have to come up with a better method to pull api config
