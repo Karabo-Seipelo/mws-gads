@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "config": "ts-node set-env.ts",
+    "start": "npm run config && ng serve",
+    "build": "npm run config && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
