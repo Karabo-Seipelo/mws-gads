@@ -23,5 +23,6 @@ export class AppComponent  implements OnInit {
 
   ngOnInit() {
     this.getDiscoverMovie();
+    console.log('testing')
   }
 }
