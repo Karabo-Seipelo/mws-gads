@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { MOVIE_API } from '../constant';
+import { API_KEY, LANGUAGE, IMAGES_URI, API_URI} from '../../enviroments/enviroment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,6 @@ export class MovieService {
   ) { }
 
   private _query(options?) {
-    const { API_KEY, LANGUAGE } = MOVIE_API;
     let option;
     let query = `?api_key=${API_KEY}&language=${LANGUAGE}`;
     const _OPTIONS = options || {};
