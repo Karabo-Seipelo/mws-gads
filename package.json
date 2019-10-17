@@ -5,6 +5,7 @@
     "ng": "ng",
     "config": "ts-node set-env.ts",
     "start": "npm run config && ng serve",
+    "dev": "ng serve",
     "build": "npm run config && ng build",
     "test": "ng test",
     "lint": "ng lint",

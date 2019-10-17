@@ -14,7 +14,7 @@ export class MovieService {
   ) { }
 
   private _query(options?) {
-    const { API_KEY, LANGUAGE, IMAGES_URI, API_URI} = environment;
+    const { API_KEY, LANGUAGE } = environment;
     let option;
     let query = `?api_key=${API_KEY}&language=${LANGUAGE}`;
     const _OPTIONS = options || {};
@@ -30,9 +30,9 @@ export class MovieService {
     return query;
   }
 
-  getImage(options): Observable<any> {
+  getImage(options) {
     const { IMAGES_URI } = environment;
-    return this.http.get<any>(`${IMAGES_URI}/${options.size}/${options.file}`);
+    return `${IMAGES_URI}/${options.size}/${options.file}`;
   }
 
   getPopular(options): Observable<any> {

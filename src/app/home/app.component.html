@@ -1,0 +1,12 @@
+<section>
+  <div *ngFor="let movie of movies" class="movie">
+      <a [ngStyle]="getImage({
+        size: 'w500',
+        file: movie.poster_path
+      })"[title]="movie.title">
+    </a>
+  </div>
+</section>
+
+
+<router-outlet></router-outlet>
