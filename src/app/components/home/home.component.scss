@@ -1,4 +1,9 @@
 section {
+  width: 100%;
+
+  $item1440: (1440 / 8) * 1px;
+  $item1500: (1500 / 10) * 1px;
+
   display: grid;
   grid-template-columns: repeat(1fr);
   grid-gap: 20px;
@@ -9,19 +14,26 @@ section {
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(8, $item1440);
   }
 
   @media (min-width: 1440px) {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, $item1440);
+  }
+
+  @media (min-width: 1500px) {
+    grid-template-columns: repeat(10, $item1500);
+    //padding: 0 60px;
   }
 
   .movie {
-    height: 500px;
+    height: 250px;
 
     a {
+
+      height: 250px;
       width: 100%;
-      height: 500px;
+
       display: block;
       background-size: cover;
       background-position: center center;
