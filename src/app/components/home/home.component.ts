@@ -28,7 +28,6 @@ export class HomeComponent  implements OnInit {
 
   getDiscoverMovie() {
     this.movieService.getDiscoverMovie().subscribe(movies => {
-      console.log(movies);
       this.currentPage = movies.page;
       this.totalPages = movies.total_pages;
       this.totalResults = movies.total_results;
