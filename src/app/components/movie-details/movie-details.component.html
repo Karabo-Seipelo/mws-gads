@@ -1,0 +1,11 @@
+<div *ngIf="movie"
+    [ngStyle]="getImage({
+      size: 'w1920',
+      file: movie.backdrop_path
+    })">
+  <h2>{{movie.title}}</h2>
+  <p>Status {{movie.status}}</p>
+  <p>Released: {{movie.release_date}}</p>
+  <p>Rate: {{movie.vote_average}}</p>
+  <p>{{movie.overview}}</p>
+</div>
