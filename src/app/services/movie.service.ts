@@ -13,9 +13,9 @@ export class MovieService {
     private http: HttpClient
   ) { }
 
-  private _query(options?) {
+  private _query(options?: {}) {
     const { API_KEY, LANGUAGE } = environment;
-    let option;
+    let option: string;
     let query = `?api_key=${API_KEY}&language=${LANGUAGE}`;
     const _OPTIONS = options || {};
 
@@ -30,22 +30,22 @@ export class MovieService {
     return query;
   }
 
-  getImage(options) {
+  getImage(options: { size: any; file: any; }) {
     const { IMAGES_URI } = environment;
     return `${IMAGES_URI}/${options.size}/${options.file}`;
   }
 
-  getPopular(options): Observable<any> {
+  getPopular(options: any): Observable<any> {
     const { API_URI } = environment;
     return this.http.get<any>(`${API_URI}movie/popular${this._query(options)}`);
   }
 
-  getMovie(id): Observable<any> {
+  getMovie(id: any): Observable<any> {
     const { API_URI } = environment;
     return this.http.get<any>(`${API_URI}movie/${id}${this._query()}`);
   }
 
-  getSimilarMovies(id): Observable<any> {
+  getSimilarMovies(id: any): Observable<any> {
     const { API_URI } = environment;
     return this.http.get<any>(`${API_URI}movie/${id}/similar${this._query()}`);
   }
@@ -55,9 +55,9 @@ export class MovieService {
     return this.http.get<any>(`${API_URI}movie/latest${this._query()}`);
   }
 
-  getDiscoverMovie(): Observable<any> {
+  getDiscoverMovie(options): Observable<any> {
     const { API_URI} = environment;
-    return this.http.get<any>(`${API_URI}discover/movie${this._query()}`);
+    return this.http.get<any>(`${API_URI}discover/movie${this._query(options)}`);
   }
 
   getMovieGenres(): Observable<any> {

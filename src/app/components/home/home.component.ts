@@ -15,6 +15,7 @@ export class HomeComponent  implements OnInit {
   totalPages;
   totalResults;
   movies;
+
   getImage =  (image) => {
     const myStyles = {
        'background-image': `url(${this.movieService.getImage(image)})`
@@ -27,11 +28,43 @@ export class HomeComponent  implements OnInit {
   ) {}
 
   getDiscoverMovie() {
-    this.movieService.getDiscoverMovie().subscribe(movies => {
+    this.movieService.getDiscoverMovie({
+      language: 'en-US',
+      include_adult: false,
+      sort_by: 'popularity.desc'
+    }).subscribe(movies => {
       this.currentPage = movies.page;
       this.totalPages = movies.total_pages;
       this.totalResults = movies.total_results;
       this.movies = movies.results;
+    });
+  }
+
+  getNext() {
+    const NextPage = this.currentPage < this.totalPages ? this.currentPage + 1 : this.currentPage;
+    this.movieService.getDiscoverMovie({
+      language: 'en-US',
+      include_adult: false,
+      sort_by: 'popularity.desc',
+      page: NextPage
+    }).subscribe(movies => {
+      this.movies = movies.results;
+      this.currentPage = movies.page;
+      console.log('page: ', this.currentPage);
+    });
+  }
+
+  getPrevious() {
+    const PreviousPage = this.currentPage === 1 ? this.currentPage : this.currentPage - 1;
+    this.movieService.getDiscoverMovie({
+      language: 'en-US',
+      include_adult: false,
+      sort_by: 'popularity.desc',
+      page: PreviousPage
+    }).subscribe(movies => {
+      this.movies = movies.results;
+      this.currentPage = movies.page;
+      console.log('page: ', this.currentPage);
     });
   }
 
