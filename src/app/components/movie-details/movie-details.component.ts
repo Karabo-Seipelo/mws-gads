@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieDetailsComponent implements OnInit {
   movie;
+  cast;
+  crew;
   getImage =  (image) => {
     const myStyles = {
        'background-image': `url(${this.movieService.getImage(image)})`
@@ -27,10 +29,18 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
+  getCredits(id) {
+    this.movieService.getCredits(id).subscribe(credits => {
+      this.cast = credits.cast;
+      this.crew = credits.crew;
+    });
+  }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       this.getMovie(id);
+      this.getCredits(id);
     });
   }
 

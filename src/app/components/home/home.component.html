@@ -1,4 +1,26 @@
-<main>
+<header *ngIf="featured && featuredList">
+  <div class="featured" [ngStyle]="getImage({
+      size: 'original',
+      file: featured.backdrop_path
+    })">
+  </div>
+  <main class="featured-list">
+      <h1>{{featured.title}}</h1>
+    <section>
+        <div *ngFor="let item of featuredList" class="featured-list-item">
+            <a [ngStyle]="getImage({
+              size: 'w500',
+              file: item.poster_path
+            })" [routerLink]="['/movie', item.id]" [title]="item.title">
+            <div class="title"> 
+                {{item.title}}
+            </div>
+          </a>
+        </div>
+    </section>
+  </main>
+</header>
+<main class="movie-list">
   <section *ngIf="movies">
     <div *ngFor="let movie of movies" class="movie">
         <a [ngStyle]="getImage({

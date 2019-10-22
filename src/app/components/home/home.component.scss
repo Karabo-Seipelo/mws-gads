@@ -23,9 +23,162 @@
 }
 
 $rating-inactive-color: #E6E7E8;
-      $rating-active-color: #23BDF0;
+$rating-active-color: #23BDF0;
 
-main {
+header{
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+  background: #f6f6f6;
+  .featured{
+  
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (min-width: 1600px) { 
+      height: 300px;
+      width: 100%;
+      padding-top: 300px;
+    }
+
+    h1 {
+      //font-family: 'Anton', sans-serif;
+      font-family: 'Barlow', sans-serif;
+      color: white;
+    }
+
+    main {
+      padding-right: 20px;
+      padding-left: 15px;
+      margin: {
+        right: auto;
+        left: auto;
+      };
+    
+      @media screen and (min-width: 768px) { 
+        width: 750px;
+      }
+    
+      @media screen and (min-width: 992px) { 
+        width: 970px;
+      }
+    
+      @media screen and (min-width: 1200px) { 
+        width: 1170px;
+      }
+    
+      @media screen and (min-width: 1600px) { 
+        width: 1300px;
+      }
+    }
+  }
+  
+  .featured-list {
+    padding-right: 20px;
+    padding-left: 15px;
+    margin: {
+      top: -10%;
+      right: auto;
+      left: auto;
+    };
+  
+    @media screen and (min-width: 768px) { 
+      width: 750px;
+    }
+  
+    @media screen and (min-width: 992px) { 
+      width: 970px;
+    }
+  
+    @media screen and (min-width: 1200px) { 
+      width: 1170px;
+    }
+  
+    @media screen and (min-width: 1600px) { 
+      width: 1300px;
+    }
+
+    
+  section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10px;
+  
+    // @media screen and (min-width: 768px) { 
+    //   grid-template-columns: repeat(4, 172px);
+    //   grid-gap: 20px;
+    // }
+  
+    // @media screen and (min-width: 992px) { 
+    //   grid-template-columns: repeat(6, 145px);
+    //   grid-gap: 20px;
+    // }
+  
+    // @media screen and (min-width: 1200px) { 
+    //   grid-template-columns: repeat(7, 140px);
+    //   grid-gap: 30px;
+    // }
+    
+    @media (min-width: 1600px) {
+      
+      grid-template-columns: repeat(4, 310px); 
+      grid-gap: 20px;
+    }
+
+    .featured-list-item {
+      a {
+    
+        width: 100%;
+        height: 200px;
+        display: block;
+        background-color: rgba(gray, .5);
+        background-size: cover;
+        background-position: center center;
+        box-shadow: 0 8px 6px -6px black;
+        background-repeat: no-repeat;
+        position: relative;
+  
+        // @media screen and (min-width: 768px) { 
+        //   height: 260px;
+        // }
+  
+        // @media screen and (min-width: 992px) { 
+        //   height: 260px;
+        // }
+  
+        // @media screen and (min-width: 1200px) { 
+        //   height: 260px;
+        // }
+  
+        @media (min-width: 1600px) {
+          height: 420px;
+        }
+
+        .title {
+          font-family: 'Barlow', sans-serif;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          min-height: 40px;
+          background: #000000;
+          background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+          padding: .5em;
+          font-size: 14px;
+          color: white;
+        }
+      }
+    }
+  }
+  }
+
+
+}
+
+
+.movie-list {
   padding-right: 20px;
   padding-left: 15px;
   margin-right: auto;
@@ -44,7 +197,7 @@ main {
   }
 
   @media screen and (min-width: 1600px) { 
-    width: 1580px;
+    width: 1200px;
   }
 
   section {
@@ -65,17 +218,17 @@ main {
     }
   
     @media screen and (min-width: 1200px) { 
-      grid-template-columns: repeat(7, 140px);
+      grid-template-columns: repeat(6, 140px);
       grid-gap: 30px;
     }
     
     @media (min-width: 1600px) {
-      grid-template-columns: repeat(8, 166px); 
+      grid-template-columns: repeat(6, 166px); 
       grid-gap: 39px;
     }
   
     .movie {
-      
+
       a {
   
         width: 100%;
@@ -117,6 +270,7 @@ main {
         }
 
         .title {
+          font-family: 'Barlow', sans-serif;
           position: absolute;
           bottom: 0;
           left: 0;
@@ -134,7 +288,7 @@ main {
 
   .pagination{
     list-style: none;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 0;
     display: block;
     height: 50px;
