@@ -64,4 +64,19 @@ export class MovieService {
     const { API_URI} = environment;
     return this.http.get<any>(`${API_URI}genre/movie/list${this._query()}`);
   }
+
+  getVideos(id): Observable<any> {
+    const { API_URI} = environment;
+    return this.http.get<any>(`${API_URI}movie/${id}${this._query()}`);
+  }
+
+  getCredits(id): Observable<any> {
+    const { API_URI} = environment;
+    return this.http.get<any>(`${API_URI}movie/${id}/credits${this._query()}`);
+  }
+
+  getRecommendations(id):  Observable<any> {
+    const { API_URI} = environment;
+    return this.http.get<any>(`${API_URI}movie/${id}/recommendations${this._query()}`);
+  }
 }

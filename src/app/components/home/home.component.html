@@ -3,11 +3,9 @@
       size: 'original',
       file: featured.backdrop_path
     })">
-    <main>
-        <h1>{{featured.title}}</h1>
-    </main>
   </div>
   <main class="featured-list">
+      <h1>{{featured.title}}</h1>
     <section>
         <div *ngFor="let item of featuredList" class="featured-list-item">
             <a [ngStyle]="getImage({
