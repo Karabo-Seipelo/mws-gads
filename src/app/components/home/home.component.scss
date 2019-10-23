@@ -200,6 +200,18 @@ header{
     width: 1200px;
   }
 
+  &-tab {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    li {
+      width: (100 / 4) * 1%;
+      float: left;
+    }
+  }
+
   section {
     width: 100%;
     display: grid;

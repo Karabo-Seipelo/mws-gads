@@ -12,12 +12,15 @@ import { MovieService } from './services/movie.service';
 import { AppComponent } from './components/app/app.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { TabComponent } from './components/tab/tab.component';
+import { TabsComponent } from './components/tab/tabs.components';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    TabComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
