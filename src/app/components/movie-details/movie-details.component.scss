@@ -1,6 +1,5 @@
 .movie {
     padding-bottom: 60px;
-    margin-bottom: 40px;
     background: #f6f6f6;
     .featured { 
         background-position: top;
@@ -14,7 +13,6 @@
         }
 
         h1 {
-        //font-family: 'Anton', sans-serif;
         font-family: 'Barlow', sans-serif;
         color: white;
         }
@@ -23,7 +21,7 @@
   &-details{
 
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 5fr;
     grid-auto-rows: minmax(100px, auto);
     grid-gap: 20px;
   
@@ -68,6 +66,32 @@
             right: 1em;
             bottom: 1em;
           };
+        }
+      }
+    }
+
+    &-cast-crew-more{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
+      grid-gap: 20px;
+    }
+
+    &-cast, &-crew {
+      section {
+        display: grid;
+        grid-template-columns: repeat(6, 150px);
+        grid-gap: 20px;
+
+        .cast, .crew {
+          &-profile {
+            display: inline-block;
+            background-color: rgba(gray, .2);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 200px;
+          }
         }
       }
     }
