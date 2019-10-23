@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { ActivatedRoute } from '@angular/router';
+import YouTubeIframeLoader from 'youtube-iframe';;
 
 @Component({
   selector: 'app-movie-details',
@@ -36,12 +37,29 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
+  getVideos(id) {
+    this.movieService.getMovie(id).subscribe(movie => {
+      const key = movie.results[0].key;
+      
+      YouTubeIframeLoader.load((YT) => {
+        new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: key
+        })
+      });
+
+    })
+  }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       this.getMovie(id);
       this.getCredits(id);
     });
+
+
   }
 
 }
