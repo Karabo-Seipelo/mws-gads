@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { Observable } from 'rxjs';
+import { forkJoin } from 'rxjs'; 
+
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
@@ -36,11 +39,27 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
+  getVideos(id) {
+    this.movieService.getMovie(id).subscribe(movie => {
+      const key = movie.results[0].key;
+    });
+  }
+
+  getRequestDataFromMultipleSources(id): Observable<any[]> {
+
+    let movieData = this.movieService.getMovie(id);
+    let crewData = this.movieService.getCredits(id)
+    
+    return forkJoin([movieData, crewData]);
+  }
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      this.getMovie(id);
-      this.getCredits(id);
+      this.getRequestDataFromMultipleSources(id).subscribe(responseList => {
+        this.movie = responseList[0];
+        this.cast = responseList[1].cast
+        this.crew = responseList[1].crew
+      })
     });
   }
 

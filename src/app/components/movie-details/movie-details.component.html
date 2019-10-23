@@ -1,75 +1,73 @@
 
-<main *ngIf="movie">
-    <div class="featured" [ngStyle]="getImage({
-        size: 'original',
-        file: movie.backdrop_path
-      })">
-    </div>
-    <section *ngIf="movie" class="movie-details-overview">
-        <header>
-                <h1>{{movie.title}}</h1>
-                <span>{{movie.release_date}}</span>
-                <span>{{movie.vote_average}}</span>
-        </header>
-        <div class="movie-details-overview-card">
-            <div class="poster" [ngStyle]="getImage({
-                size: 'w500',
-                file: movie.poster_path
-              })"></div>
-              <div>
-                    <p>{{movie.tagline}}</p>
-                    <p>{{movie.overview}}</p>
-                    <p>
-                        <strong>Genres: </strong>
-                        <span *ngFor="let genre of movie.genres">
-                            {{genre.name}}
-                        </span>
-                    </p>
-              </div>
+<article>
+    <header class="movie" *ngIf="movie">
+        <div class="featured" [ngStyle]="getImage({
+            size: 'original',
+            file: movie.backdrop_path
+        })">
+        </div>
+        <section *ngIf="movie" class="movie-details-overview">
+            <header>
+                    <h1>{{movie.title}}</h1>
+                    <span>{{movie.release_date}}</span>
+                    <span>{{movie.vote_average}}</span>
+            </header>
+            <div class="movie-details-overview-card">
+                <div class="poster" [ngStyle]="getImage({
+                    size: 'w500',
+                    file: movie.poster_path
+                })"></div>
+                <div>
+                        <p>{{movie.tagline}}</p>
+                        <p>{{movie.overview}}</p>
+                        <p>
+                            <strong>Genres: </strong>
+                            <span *ngFor="let genre of movie.genres">
+                                {{genre.name}}
+                            </span>
+                        </p>
+                </div>
+            </div>
+        </section>
+    </header>
+    <section class="movie-details">
+        <div *ngIf="movie" class="movie-details-data">
+            <h2>Movie Data</h2>
+            <dl>
+                <dt>Status</dt>
+                <dd>{{movie.status}}</dd>
+
+                <dt>Release Information</dt>
+                <dd>{{movie.release_date}}</dd>
+
+                <dt>Budget</dt>
+                <dd>{{movie.budget}}</dd>
+
+                <dt>Revenue</dt>
+                <dd>{{movie.revenue}}</dd>
+
+                <dt>Homepage</dt>
+                <dd>{{movie.homepage}}</dd>
+
+                <dt>Production Companies</dt>
+                <dd>
+                    <span *ngFor="let production of movie.production_companies">
+                        {{production.name}}
+                    </span>
+                </dd>
+            </dl>
+        </div>
+        <div class="movie-details-cast-crew-more">
+            <div class="movie-details-cast">
+                <h2>featured cast</h2>
+            </div>
+            <div class="movie-details-crew">
+                <h2>featured crew</h2>
+            </div>
+            <div class="movie-details-more">
+                <h2>People also liked</h2>
+            </div>
         </div>
     </section>
-</main>
-<section class="movie-details">
-    <div *ngIf="movie" class="movie-details-data">
-        <h2>Movie Data</h2>
-        <dl>
-            <dt>Status</dt>
-            <dd>{{movie.status}}</dd>
-
-            <dt>Release Information</dt>
-            <dd>{{movie.release_date}}</dd>
-
-            <dt>Budget</dt>
-            <dd>{{movie.budget}}</dd>
-
-            <dt>Revenue</dt>
-            <dd>{{movie.revenue}}</dd>
-
-            <dt>Homepage</dt>
-            <dd>{{movie.homepage}}</dd>
-
-            <dt>Production Companies</dt>
-            <dd>
-                <span *ngFor="let production of movie.production_companies">
-                    <img src="getImage({
-                        size: 'w500',
-                        file: production.logo_path
-                      })" [title]="production.name" />
-                </span> 
-            </dd>
-        </dl>
-    </div>
-    <div class="movie-details-cast-crew-more">
-        <div class="movie-details-cast">
-            <h2>featured cast</h2>
-        </div>
-        <div class="movie-details-crew">
-            <h2>featured crew</h2>
-        </div>
-        <div class="movie-details-more">
-            <h2>People also liked</h2>
-        </div>
-    </div>
-</section>
-
+</article>
 

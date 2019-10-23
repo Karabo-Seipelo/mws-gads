@@ -35,9 +35,9 @@ export class MovieService {
     return `${IMAGES_URI}/${options.size}/${options.file}`;
   }
 
-  getPopular(options: any): Observable<any> {
+  getPopular(): Observable<any> {
     const { API_URI } = environment;
-    return this.http.get<any>(`${API_URI}movie/popular${this._query(options)}`);
+    return this.http.get<any>(`${API_URI}movie/popular${this._query()}`);
   }
 
   getMovie(id: any): Observable<any> {
@@ -79,4 +79,20 @@ export class MovieService {
     const { API_URI} = environment;
     return this.http.get<any>(`${API_URI}movie/${id}/recommendations${this._query()}`);
   }
+
+  getNowPlaying(): Observable<any> {
+    const { API_URI} = environment;
+    return this.http.get<any>(`${API_URI}movie/now_playing${this._query()}`);
+  }
+
+  getTopRated(): Observable<any> {
+    const { API_URI} = environment;
+    return this.http.get<any>(`${API_URI}movie/top_rated${this._query()}`);
+  }
+
+  getUpComing(): Observable<any> {
+    const { API_URI} = environment;
+    return this.http.get<any>(`${API_URI}movie/upcoming${this._query()}`);
+  }
+
 }
