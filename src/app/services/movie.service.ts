@@ -35,9 +35,9 @@ export class MovieService {
     return `${IMAGES_URI}/${options.size}/${options.file}`;
   }
 
-  getPopular(options: any): Observable<any> {
+  getPopular(): Observable<any> {
     const { API_URI } = environment;
-    return this.http.get<any>(`${API_URI}movie/popular${this._query(options)}`);
+    return this.http.get<any>(`${API_URI}movie/popular${this._query()}`);
   }
 
   getMovie(id: any): Observable<any> {
