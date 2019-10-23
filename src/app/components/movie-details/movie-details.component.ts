@@ -12,8 +12,8 @@ import { forkJoin } from 'rxjs';
 })
 export class MovieDetailsComponent implements OnInit {
   movie;
-  cast;
-  crew;
+  casts;
+  crews;
   getImage =  (image) => {
     const myStyles = {
        'background-image': `url(${this.movieService.getImage(image)})`
@@ -21,23 +21,12 @@ export class MovieDetailsComponent implements OnInit {
     return myStyles;
   }
 
+  getImageUrl = (image) => this.movieService.getImage(image);
+
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
   ) { }
-
-  getMovie(id) {
-    this.movieService.getMovie(id).subscribe(movie => {
-      this.movie = movie;
-    });
-  }
-
-  getCredits(id) {
-    this.movieService.getCredits(id).subscribe(credits => {
-      this.cast = credits.cast;
-      this.crew = credits.crew;
-    });
-  }
 
   getVideos(id) {
     this.movieService.getMovie(id).subscribe(movie => {
@@ -47,19 +36,20 @@ export class MovieDetailsComponent implements OnInit {
 
   getRequestDataFromMultipleSources(id): Observable<any[]> {
 
-    let movieData = this.movieService.getMovie(id);
-    let crewData = this.movieService.getCredits(id)
-    
+    const movieData = this.movieService.getMovie(id);
+    const crewData = this.movieService.getCredits(id);
+
     return forkJoin([movieData, crewData]);
   }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       this.getRequestDataFromMultipleSources(id).subscribe(responseList => {
         this.movie = responseList[0];
-        this.cast = responseList[1].cast
-        this.crew = responseList[1].crew
-      })
+        this.casts = responseList[1].cast;
+        this.crews = responseList[1].crew;
+      });
     });
   }
 

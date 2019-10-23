@@ -7,13 +7,13 @@
   <main class="featured-list">
       <h1>{{featured.title}}</h1>
     <section>
-        <div *ngFor="let item of featuredList" class="featured-list-item">
+        <div *ngFor="let movie of featuredList" class="featured-list-item">
             <a [ngStyle]="getImage({
               size: 'w500',
-              file: item.poster_path
-            })" [routerLink]="['/movie', item.id]" [title]="item.title">
-            <div class="title"> 
-                {{item.title}}
+              file: movie.poster_path
+            })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
+            <div class="title">
+                {{movie.title}}
             </div>
           </a>
         </div>
@@ -21,16 +21,49 @@
   </main>
 </header>
 <main class="movie-list">
-    <section *ngIf="upcoming">
-      <div *ngFor="let movie of upcoming" class="movie">
-          <a [ngStyle]="getImage({
-            size: 'w500',
-            file: movie.poster_path
-          })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
-          <div class="title"> 
-              {{movie.title}}
+  <my-tabs>
+    <app-tab [tabTitle]="'Upcoming Films'">
+      <section *ngIf="upcoming">
+          <div *ngFor="let movie of upcoming" class="movie">
+              <a [ngStyle]="getImage({
+                size: 'w500',
+                file: movie.poster_path
+              })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
+              <div class="title"> 
+                  {{movie.title}}
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-    </section>
+        </section>
+    </app-tab>
+    <app-tab [tabTitle]="'Top Rated Films'">
+        <section *ngIf="topRated">
+            <div *ngFor="let movie of topRated" class="movie">
+                <a [ngStyle]="getImage({
+                  size: 'w500',
+                  file: movie.poster_path
+                })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
+                <div class="title"> 
+                    {{movie.title}}
+                </div>
+              </a>
+            </div>
+        </section>
+    </app-tab>
+    <app-tab [tabTitle]="'Popular Films'">
+        <section *ngIf="popular">
+            <div *ngFor="let movie of popular" class="movie">
+                <a [ngStyle]="getImage({
+                  size: 'w500',
+                  file: movie.poster_path
+                })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
+                <div class="title"> 
+                    {{movie.title}}
+                </div>
+              </a>
+            </div>
+          </section>
+    </app-tab>
+  </my-tabs>
+
 </main>

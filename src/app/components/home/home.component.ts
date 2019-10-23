@@ -1,3 +1,4 @@
+import { TabsComponent } from './../tab/tabs.components';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
@@ -48,10 +49,9 @@ export class HomeComponent  implements OnInit {
 
   ngOnInit() {
     this.getRequestDataFromMultipleSources().subscribe(responseList => {
-      this.featured = responseList[0].results.splice(0,1)[0];
-      this.featuredList = responseList[0].results.splice(1,4);
+      this.featured = responseList[2].results.splice(0,1)[0];
+      this.featuredList = responseList[2].results.splice(1,4);
       this.upcoming = responseList[1].results;
-      this.nowPlaying = responseList[2].results;
       this.topRated = responseList[3].results;
       this.popular = responseList[4].results;
     });

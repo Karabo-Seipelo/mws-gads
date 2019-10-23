@@ -60,9 +60,29 @@
         <div class="movie-details-cast-crew-more">
             <div class="movie-details-cast">
                 <h2>featured cast</h2>
+                <section>
+                  <div class="cast" *ngFor="let cast of casts">
+                          <div class="cast-profile" [ngStyle]="getImage({
+                            size: 'w200',
+                            file: cast.profile_path
+                          })"></div>
+                          <strong>{{cast.name}}</strong>
+                          <p>{{cast.character}}</p>
+                  </div>
+                </section>
             </div>
             <div class="movie-details-crew">
                 <h2>featured crew</h2>
+                <section>
+                  <div *ngFor="let crew of crews">
+                      <div class="crew-profile" [ngStyle]="getImage({
+                        size: 'w200',
+                        file: crew.profile_path
+                      })"></div>
+                      <strong>{{crew.name}}</strong>
+                      <p>{{crew.job}}</p>
+                  </div>
+                </section>
             </div>
             <div class="movie-details-more">
                 <h2>People also liked</h2>

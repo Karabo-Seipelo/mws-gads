@@ -1,0 +1,21 @@
+.tabs {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(70px, auto);
+  grid-gap: 40px;
+  padding: 0;
+  margin: 0 0 40px 0;
+  box-shadow: 0 2px 0px 0px rgba(gray, .5);
+
+  li {
+    cursor: pointer;
+    text-align: center;
+    line-height: 70px;
+
+    &.active {
+      color: #23BDF0;
+      box-shadow: 0 2px 0px 0px rgba( #23BDF0, 0.5);
+    }
+  }
+}
