@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/35e22b06-60d0-415c-acd1-a5fad7776f92/deploy-status)](https://app.netlify.com/sites/frosty-shaw-cb9758/deploys)
+
 # MwsGads
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
