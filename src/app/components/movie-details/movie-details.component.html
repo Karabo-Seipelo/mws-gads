@@ -58,34 +58,77 @@
             </dl>
         </div>
         <div class="movie-details-cast-crew-more">
+            
+            
             <div class="movie-details-cast">
-                <h2>featured cast</h2>
+                <h2 (click)="seeMore(castSeeAll)">featured cast</h2>
                 <section>
-                  <div class="cast" *ngFor="let cast of casts">
-                          <div class="cast-profile" [ngStyle]="getImage({
-                            size: 'w200',
-                            file: cast.profile_path
-                          })"></div>
-                          <strong>{{cast.name}}</strong>
-                          <p>{{cast.character}}</p>
-                  </div>
+                    <app-movie-detail-feed *ngFor="let cast of casts;"
+                        [feed]="cast"></app-movie-detail-feed>
+
+                    <!-- <ng-container *ngFor="let cast of casts; let i=index">
+                        <div class="cast" *ngIf="i < 6">
+                            <div class="cast-profile" [ngStyle]="getImage({
+                                size: 'w200',
+                                file: cast.profile_path
+                            })"></div>
+                            <strong>{{cast.name}}</strong>
+                            <p>{{cast.character}}</p>
+                        </div>
+                        <div *ngIf="i > 6">
+                            <div class="cast-profile" [ngStyle]="getImage({
+                                size: 'w200',
+                                file: cast.profile_path
+                            })"></div>
+                            <strong>{{cast.name}}</strong>
+                            <p>{{cast.character}}</p>
+                        </div>
+                    </ng-container> -->
                 </section>
             </div>
             <div class="movie-details-crew">
                 <h2>featured crew</h2>
                 <section>
-                  <div *ngFor="let crew of crews">
-                      <div class="crew-profile" [ngStyle]="getImage({
-                        size: 'w200',
-                        file: crew.profile_path
-                      })"></div>
-                      <strong>{{crew.name}}</strong>
-                      <p>{{crew.job}}</p>
-                  </div>
+                    <ng-container *ngFor="let crew of crews; let i=index">
+                        <div *ngIf="i < 6">
+                            <div class="crew-profile" [ngStyle]="getImage({
+                                size: 'w200',
+                                file: crew.profile_path
+                            })"></div>
+                            <strong>{{crew.name}}</strong>
+                            <p>{{crew.job}}</p>
+                        </div>
+                        <div *ngIf="i > 6">
+                            <div class="crew-profile" [ngStyle]="getImage({
+                                size: 'w200',
+                                file: crew.profile_path
+                            })"></div>
+                            <strong>{{crew.name}}</strong>
+                            <p>{{crew.job}}</p>
+                        </div>
+                    </ng-container>
                 </section>
             </div>
             <div class="movie-details-more">
                 <h2>People also liked</h2>
+                <section>
+                    <ng-container *ngFor="let movie of similarMovies; let i=index">
+                        <div *ngIf="i < 6">
+                            <div class="crew-profile" [ngStyle]="getImage({
+                            size: 'w200',
+                            file: movie.poster_path
+                            })"></div>
+                            <strong>{{movie.title}}</strong>
+                        </div>
+                        <div *ngIf="i > 6">
+                                <div class="crew-profile" [ngStyle]="getImage({
+                                size: 'w200',
+                                file: movie.poster_path
+                                })"></div>
+                                <strong>{{movie.title}}</strong>
+                            </div>
+                    </ng-container>
+                </section>
             </div>
         </div>
     </section>

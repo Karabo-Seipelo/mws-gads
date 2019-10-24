@@ -13,7 +13,17 @@ import { forkJoin } from 'rxjs';
 export class MovieDetailsComponent implements OnInit {
   movie;
   casts;
+  castSeeAll = false;
   crews;
+  crewSeeAll = false;
+  similarMovies;
+  similarMoviesSeeAll = false;
+
+  seeMore = (value) => {
+    console.log('click: ', !value);
+    return value = !value;
+  };
+
   getImage =  (image) => {
     const myStyles = {
        'background-image': `url(${this.movieService.getImage(image)})`
@@ -38,8 +48,9 @@ export class MovieDetailsComponent implements OnInit {
 
     const movieData = this.movieService.getMovie(id);
     const crewData = this.movieService.getCredits(id);
+    const similarData = this.movieService.getSimilarMovies(id);
 
-    return forkJoin([movieData, crewData]);
+    return forkJoin([movieData, crewData, similarData]);
   }
 
   ngOnInit() {
@@ -49,6 +60,7 @@ export class MovieDetailsComponent implements OnInit {
         this.movie = responseList[0];
         this.casts = responseList[1].cast;
         this.crews = responseList[1].crew;
+        this.similarMovies = responseList[2].results;
       });
     });
   }
