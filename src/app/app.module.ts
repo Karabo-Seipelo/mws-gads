@@ -14,13 +14,15 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { HomeComponent } from './components/home/home.component';
 import { TabComponent } from './components/tab/tab.component';
 import { TabsComponent } from './components/tab/tabs.components';
+import { MovieDetailFeedComponent } from './components/movie-details/movie-detail-feed/movie-detail-feed.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MovieDetailsComponent,
     TabComponent,
-    TabsComponent
+    TabsComponent,
+    MovieDetailFeedComponent
   ],
   imports: [
     BrowserModule,
