@@ -52,21 +52,19 @@
                 <dt>Production Companies</dt>
                 <dd>
                     <span *ngFor="let production of movie.production_companies">
-                        {{production.name}}
+                        <img *ngIf="production.logo_path" [src]="getImageUrl({
+                          size: 'original',
+                          file: production.logo_path
+                      })" [title]="production.name" width="99px"/>
                     </span>
                 </dd>
             </dl>
         </div>
-        <div class="movie-details-cast-crew-more">
-            
-            
+        <div class="movie-details-cast-crew-more"> 
             <div class="movie-details-cast">
                 <h2 (click)="seeMore(castSeeAll)">featured cast</h2>
                 <section>
-                    <app-movie-detail-feed *ngFor="let cast of casts;"
-                        [feed]="cast"></app-movie-detail-feed>
-
-                    <!-- <ng-container *ngFor="let cast of casts; let i=index">
+                    <ng-container *ngFor="let cast of casts; let i=index">
                         <div class="cast" *ngIf="i < 6">
                             <div class="cast-profile" [ngStyle]="getImage({
                                 size: 'w200',
@@ -83,7 +81,7 @@
                             <strong>{{cast.name}}</strong>
                             <p>{{cast.character}}</p>
                         </div>
-                    </ng-container> -->
+                    </ng-container>
                 </section>
             </div>
             <div class="movie-details-crew">

@@ -95,6 +95,21 @@
         }
       }
     }
+
+    &-data {
+      dl {
+        dt,dd {
+          margin: 0;
+          width: 100%;
+        }
+        dt {
+          color: #23BDF0;
+        }
+        dd {
+        margin-bottom: 4em;
+        }
+      }
+    }
   }
 }
 
