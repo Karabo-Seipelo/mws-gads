@@ -1,53 +1,78 @@
 .movie {
     padding-bottom: 60px;
     background: #f6f6f6;
-    .featured { 
+    .featured {
         background-position: top;
         background-repeat: no-repeat;
         background-size: cover;
 
-        @media (min-width: 1600px) { 
-        height: 300px;
-        width: 100%;
-        padding-top: 300px;
+        @media (min-width: 1600px) {
+          height: 300px;
+          width: 100%;
+          padding-top: 300px;
         }
 
         h1 {
         font-family: 'Barlow', sans-serif;
         color: white;
         }
+
+        &:after {
+          content: "";
+
+          @media (min-width: 1600px) {
+            display: block;
+            width: 100%;
+            height: 300px;
+            margin-bottom: -300px;
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+          }
+        }
     }
 
   &-details{
 
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 3fr 5fr;
     grid-auto-rows: minmax(100px, auto);
-    grid-gap: 20px;
-  
+
     &-overview {
+      position: relative;
       padding-right: 20px;
       padding-left: 15px;
       margin-right: auto;
       margin-left: auto;
       margin-top: -10%;
-    
-      @media screen and (min-width: 768px) { 
+
+      @media screen and (min-width: 768px) {
         width: 750px;
       }
-    
-      @media screen and (min-width: 992px) { 
+
+      @media screen and (min-width: 992px) {
         width: 970px;
       }
-    
-      @media screen and (min-width: 1200px) { 
+
+      @media screen and (min-width: 1200px) {
         width: 1170px;
       }
-    
-      @media screen and (min-width: 1600px) { 
+
+      @media screen and (min-width: 1600px) {
         width: 1200px;
       }
-  
+
+      header {
+        color: white;
+        margin-bottom: 1em;
+
+        span {
+          margin-right: 1em;
+          i {
+            vertical-align: bottom;
+          }
+        }
+      }
+
       &-card {
         background: black;
         color: white;
@@ -56,8 +81,8 @@
         grid-template-columns: 200px 1fr;
         grid-auto-rows: minmax(100px, auto);
         grid-gap: 20px;
-  
-  
+
+
         .poster {
           width:  200px;
           height: 300px;
@@ -77,13 +102,37 @@
       grid-gap: 20px;
     }
 
+    &-crew {
+      background: #f6f6f6;
+    }
+
     &-cast, &-crew, &-more {
+      padding: 0 20px;
+      // use css to select the first four item and hide the rest
+      h2 {
+        text-transform: capitalize;
+      }
       section {
         display: grid;
-        grid-template-columns: repeat(6, 150px);
+        grid-template-columns: repeat(5, 150px);
         grid-gap: 20px;
 
+        .person {
+          &-profile {
+            display: inline-block;
+            background-color: rgba(gray, .2);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 200px;
+          }
+          strong{
+            color: #23BDF0;
+          }
+        }
+
         .cast, .crew, .more {
+          padding-left: 20px;
           &-profile {
             display: inline-block;
             background-color: rgba(gray, .2);
@@ -97,7 +146,12 @@
     }
 
     &-data {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+
       dl {
+        margin: 0;
         dt,dd {
           margin: 0;
           width: 100%;
@@ -106,7 +160,12 @@
           color: #23BDF0;
         }
         dd {
-        margin-bottom: 4em;
+        margin-bottom: 3em;
+
+          span {
+            display: block;
+            margin: 1em 0;
+          }
         }
       }
     }

@@ -3,7 +3,7 @@ import { MovieService } from '../../services/movie.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs';
-import { forkJoin } from 'rxjs'; 
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-movie-details',
@@ -12,6 +12,7 @@ import { forkJoin } from 'rxjs';
 })
 export class MovieDetailsComponent implements OnInit {
   movie;
+  player;
   casts;
   castSeeAll = false;
   crews;
@@ -22,7 +23,7 @@ export class MovieDetailsComponent implements OnInit {
   seeMore = (value) => {
     console.log('click: ', !value);
     return value = !value;
-  };
+  }
 
   getImage =  (image) => {
     const myStyles = {
@@ -58,6 +59,7 @@ export class MovieDetailsComponent implements OnInit {
       const id = params.get('id');
       this.getRequestDataFromMultipleSources(id).subscribe(responseList => {
         this.movie = responseList[0];
+        this.movie.release_date = new Date(this.movie.release_date).getUTCFullYear();
         this.casts = responseList[1].cast;
         this.crews = responseList[1].crew;
         this.similarMovies = responseList[2].results;
