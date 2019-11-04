@@ -3,43 +3,35 @@ header {
   height: 70px;
   width: 100%;
   display: table;
-  box-shadow: 0 0 5px rgba(0,0,0,.2);
-  position: fixed;
+  //box-shadow: 0 0 5px rgba(0,0,0,.2);
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 99;
+  main {
+    color: white;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    grid-auto-rows: minmax(70px, auto);
 
-//   main {
+    @media screen and (min-width: 1600px) {
+        width: 1200px;
+    }
 
-//     padding-right: 20px;
-//     padding-left: 15px;
-//     margin-right: auto;
-//     margin-left: auto;
-  
-//     @media screen and (min-width: 768px) { 
-//       width: 750px;
-//     }
-  
-//     @media screen and (min-width: 992px) { 
-//       width: 970px;
-//     }
-  
-//     @media screen and (min-width: 1200px) { 
-//       width: 1170px;
-//     }
-  
-//     @media screen and (min-width: 1600px) { 
-//       width: 1580px;
-//     }
+    nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-auto-rows: minmax(70px, auto);
 
-//     .logo{
-//       text-transform: uppercase;
-//       font-weight: bold;
-//     }
-  
-//   }
-//   & + main {
-//     padding-top: 90px;
-//   }
-// 
+      span {
+        line-height: 70px;
+        text-align: center;
+
+        i {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
 }
