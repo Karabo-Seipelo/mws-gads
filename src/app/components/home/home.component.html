@@ -5,7 +5,7 @@
     })">
   </div>
   <main class="featured-list">
-      <h1>{{featured.title}}</h1>
+    <h1>{{featured.title}}</h1>
     <section>
         <div *ngFor="let movie of featuredList" class="featured-list-item">
             <a [ngStyle]="getImage({
@@ -20,7 +20,8 @@
     </section>
   </main>
 </header>
-<main class="movie-list">
+
+ <main class="movie-list">
   <my-tabs>
     <app-tab [tabTitle]="'Upcoming Films'">
       <section *ngIf="upcoming">
@@ -29,7 +30,7 @@
                 size: 'w500',
                 file: movie.poster_path
               })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
-              <div class="title"> 
+              <div class="title">
                   {{movie.title}}
               </div>
             </a>
@@ -43,7 +44,7 @@
                   size: 'w500',
                   file: movie.poster_path
                 })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
-                <div class="title"> 
+                <div class="title">
                     {{movie.title}}
                 </div>
               </a>
@@ -57,7 +58,7 @@
                   size: 'w500',
                   file: movie.poster_path
                 })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
-                <div class="title"> 
+                <div class="title">
                     {{movie.title}}
                 </div>
               </a>
