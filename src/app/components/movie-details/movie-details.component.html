@@ -77,7 +77,9 @@
         </div>
         <div class="movie-details-cast-crew-more">
             <div class="movie-details-cast">
-                <h2 (click)="seeMore(castSeeAll)">featured cast</h2>
+                <header>
+                    <h2 (click)="seeMore(castSeeAll)">featured cast</h2>
+                </header>
                 <section>
                     <ng-container *ngFor="let cast of casts; let i=index">
                         <div class="person">
@@ -86,13 +88,15 @@
                                 file: cast?.profile_path
                             })"></div>
                             <strong>{{cast.name}}</strong>
-                            <p>{{cast.character}}</p>
+                            <span>{{cast.character}}</span>
                         </div>
                     </ng-container>
                 </section>
             </div>
             <div class="movie-details-crew">
-                <h2>featured crew</h2>
+                <header>
+                    <h2>featured crew</h2>
+                </header>
                 <section>
                     <ng-container *ngFor="let crew of crews; let i=index">
                         <div class="person" [hidden]="i > 5">
@@ -101,13 +105,15 @@
                                 file: crew?.profile_path
                             })"></div>
                             <strong>{{crew.name}}</strong>
-                            <p>{{crew.job}}</p>
+                            <span>{{crew.job}}</span>
                         </div>
                     </ng-container>
                 </section>
             </div>
             <div class="movie-details-more">
-                <h2>People also liked</h2>
+                <header>
+                  <h2>People also liked</h2>
+                </header>
                 <section>
                     <ng-container *ngFor="let movie of similarMovies; let i=index">
                         <div>

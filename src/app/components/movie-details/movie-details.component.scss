@@ -7,14 +7,26 @@
         background-size: cover;
 
         @media (min-width: 1600px) {
-          height: 300px;
+          height: 600px;
           width: 100%;
-          padding-top: 300px;
         }
 
         h1 {
         font-family: 'Barlow', sans-serif;
         color: white;
+        }
+
+        &:before {
+          content: "";
+
+          @media (min-width: 1600px) {
+            display: block;
+            width: 100%;
+            height: 300px;
+            margin-top: 0px;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+            z-index: 1;
+          }
         }
 
         &:after {
@@ -25,7 +37,7 @@
             width: 100%;
             height: 300px;
             margin-bottom: -300px;
-            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0) 40%);
             z-index: 1;
           }
         }
@@ -100,6 +112,13 @@
       grid-template-columns: 1fr;
       grid-auto-rows: auto;
       grid-gap: 20px;
+
+      div {
+        @media (min-width: 1600px) {
+          //width: 830px;
+          display: block;
+        }
+      }
     }
 
     &-crew {
@@ -118,6 +137,9 @@
         grid-gap: 20px;
 
         .person {
+          display: grid;
+          grid-template-rows: 200px 20px 20px;
+
           &-profile {
             display: inline-block;
             background-color: rgba(gray, .2);
