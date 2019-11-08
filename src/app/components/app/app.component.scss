@@ -3,10 +3,10 @@ header {
   height: 70px;
   width: 100%;
   display: display;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 20;
   main {
     color: white;
     margin: 0 auto;
@@ -42,6 +42,13 @@ header {
       width: 100%;
       top: 70px;
       left: -100%;
+      transition: left .5s;
+
+      &.is {
+        &-open {
+          left: -15%;
+        }
+      }
 
       &.open {
         left: 0;
@@ -63,6 +70,21 @@ header {
           vertical-align: middle;
         }
       }
+    }
+  }
+}
+
+main {
+  &.overlay {
+    &:before {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: rgba(black, .5);
+      z-index: 10;
     }
   }
 }
