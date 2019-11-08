@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent  implements OnInit {
   title = 'mws-gads';
+  isOpen = false;
 
   constructor(
   ) {}
+
+  toggleMenu = (toggle) => {
+    //this.isOpen = !this.isOpen;
+    this.isOpen = !toggle;
+  }
 
   ngOnInit() {
   }

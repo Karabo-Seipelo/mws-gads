@@ -1,10 +1,10 @@
 <header>
   <main>
       <h1>
-        <i class="material-icons md-18 menu">menu</i>
+        <i (click)="toggleMenu(isOpen)" class="material-icons md-18 menu">menu</i>
         <a [routerLink]="['/']">LOGO</a>
       </h1>
-      <nav>
+      <nav [ngClass]="{'is-open': isOpen}">
         <span>Movies</span>
         <span>People</span>
         <span>Companies</span>
@@ -13,7 +13,7 @@
       </nav>
   </main>
 </header>
-<main>
+<main [ngClass]="{'overlay': isOpen}">
     <router-outlet></router-outlet>
 </main>
 
