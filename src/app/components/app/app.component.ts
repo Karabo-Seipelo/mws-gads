@@ -13,7 +13,6 @@ export class AppComponent  implements OnInit {
   ) {}
 
   toggleMenu = (toggle) => {
-    //this.isOpen = !this.isOpen;
     this.isOpen = !toggle;
   }
 

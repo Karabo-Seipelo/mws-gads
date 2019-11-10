@@ -58,7 +58,7 @@
 
                     <ng-container *ngIf="movie.homepage">
                       <dt>Homepage</dt>
-                      <dd>{{movie.homepage}}</dd>
+                      <dd><a [href]="movie.homepage" target="_blank">Site</a></dd>
                     </ng-container>
 
                     <ng-container *ngIf="movie.production_companies">
@@ -75,7 +75,7 @@
               </dl>
           </div>
         </div>
-        <div class="movie-details-cast-crew-more">
+        <div *ngIf="casts" class="movie-details-cast-crew-more">
             <div class="movie-details-cast">
                 <header>
                     <h2 (click)="seeMore(castSeeAll)">featured cast</h2>
@@ -93,7 +93,7 @@
                     </ng-container>
                 </section>
             </div>
-            <div class="movie-details-crew">
+            <div *ngIf="crews" class="movie-details-crew">
                 <header>
                     <h2>featured crew</h2>
                 </header>
@@ -110,7 +110,7 @@
                     </ng-container>
                 </section>
             </div>
-            <div class="movie-details-more">
+            <div *ngIf="similarMovies" class="movie-details-more">
                 <header>
                   <h2>People also liked</h2>
                 </header>
