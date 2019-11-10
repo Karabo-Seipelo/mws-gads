@@ -73,8 +73,7 @@ header{
     }
 
     h1 {
-      //font-family: 'Anton', sans-serif;
-      font-family: 'Barlow', sans-serif;
+      font-family: 'Roboto', sans-serif;
       color: white;
     }
 
@@ -109,6 +108,7 @@ header{
     padding-left: 15px;
 
     @media screen and (min-width: 1600px) {
+      min-height: 400px;
       margin: {
         top: -10%;
         right: auto;
@@ -117,6 +117,7 @@ header{
    }
 
     h1 {
+      font-family: 'Roboto', sans-serif;
       color: white;
     }
 
@@ -168,12 +169,11 @@ header{
         }
 
         .title {
-          font-family: 'Barlow', sans-serif;
+          font-family: 'Roboto', sans-serif;
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
-          min-height: 40px;
           background: #000000;
           background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0) 40%);
           padding: .5em;
@@ -249,7 +249,19 @@ header{
       grid-gap: 40px;
     }
 
+    div:nth-child(n+7) {
+      display: none;
+    }
+
+    &.more {
+      div:nth-child(n+7) {
+        display: block;
+      }
+    }
+
     .movie {
+
+
 
       a {
 
@@ -292,14 +304,13 @@ header{
         }
 
         .title {
-          font-family: 'Barlow', sans-serif;
+          font-family: 'Roboto', sans-serif;
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
-          min-height: 40px;
           background: #000000;
-          background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0) 40%);
+          background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0) 80%);
           padding: .5em;
           font-size: 14px;
           color: white;

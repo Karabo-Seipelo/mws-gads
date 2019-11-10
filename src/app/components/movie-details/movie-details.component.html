@@ -75,7 +75,7 @@
               </dl>
           </div>
         </div>
-        <div *ngIf="casts" class="movie-details-cast-crew-more">
+        <div *ngIf="casts && casts.length > 0" class="movie-details-cast-crew-more">
             <div class="movie-details-cast">
                 <header>
                     <h2 (click)="seeMore(castSeeAll)">featured cast</h2>
@@ -93,7 +93,7 @@
                     </ng-container>
                 </section>
             </div>
-            <div *ngIf="crews" class="movie-details-crew">
+            <div *ngIf="crews && crews.length > 0" class="movie-details-crew">
                 <header>
                     <h2>featured crew</h2>
                 </header>
@@ -110,7 +110,7 @@
                     </ng-container>
                 </section>
             </div>
-            <div *ngIf="similarMovies" class="movie-details-more">
+            <div *ngIf="similarMovies && similarMovies.length > 0" class="movie-details-more">
                 <header>
                   <h2>People also liked</h2>
                 </header>

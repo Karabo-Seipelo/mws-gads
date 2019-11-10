@@ -12,8 +12,8 @@
         }
 
         h1 {
-        font-family: 'Barlow', sans-serif;
-        color: white;
+          font-family: 'Roboto', sans-serif;
+          color: white;
         }
 
         &:before {
@@ -132,13 +132,23 @@
     }
 
     &-cast, &-crew, &-more {
-      padding: 0 20px;
+      padding: 0 20px 20px 20px;
       // use css to select the first four item and hide the rest
       h2 {
         text-transform: capitalize;
       }
       section {
         display: grid;
+
+        div:nth-child(n+6) {
+          display: none;
+        }
+
+        &.more {
+          div:nth-child(n+6) {
+            display: grid;
+          }
+        }
 
         @media (min-width: 1600px) {
           grid-template-columns: repeat(5, 150px);
@@ -149,7 +159,8 @@
           display: grid;
 
           @media (min-width: 1600px) {
-            grid-template-rows: 200px 20px 20px;
+            grid-template-rows: 200px auto auto;
+            row-gap: 5px;
           }
 
           &-profile {

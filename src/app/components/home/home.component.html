@@ -24,7 +24,7 @@
  <main class="movie-list">
   <my-tabs>
     <app-tab [tabTitle]="'Upcoming Films'">
-      <section *ngIf="upcoming">
+      <section *ngIf="upcoming" ngClass="{'more': false}">
           <div *ngFor="let movie of upcoming" class="movie">
               <a [ngStyle]="getImage({
                 size: 'w500',
@@ -38,11 +38,11 @@
         </section>
     </app-tab>
     <app-tab [tabTitle]="'Top Rated Films'">
-        <section *ngIf="topRated">
+        <section *ngIf="topRated" ngClass="{'more': false}">
             <div *ngFor="let movie of topRated" class="movie">
                 <a [ngStyle]="getImage({
                   size: 'w500',
-                  file: movie.poster_path
+                  file: movie?.poster_path
                 })" [routerLink]="['/movie', movie.id]" [title]="movie.title">
                 <div class="title">
                     {{movie.title}}
@@ -52,7 +52,7 @@
         </section>
     </app-tab>
     <app-tab [tabTitle]="'Popular Films'">
-        <section *ngIf="popular">
+        <section *ngIf="popular" ngClass="{'more': false}">
             <div *ngFor="let movie of popular" class="movie">
                 <a [ngStyle]="getImage({
                   size: 'w500',
