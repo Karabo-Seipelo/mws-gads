@@ -46,8 +46,11 @@
   &-details{
 
     display: grid;
-    grid-template-columns: 3fr 5fr;
-    grid-auto-rows: minmax(100px, auto);
+
+    @media (min-width: 1600px) {
+      grid-template-columns: 3fr 5fr;
+      grid-auto-rows: minmax(100px, auto);
+    }
 
     &-overview {
       position: relative;
@@ -90,9 +93,12 @@
         color: white;
         padding: 1em;
         display: grid;
-        grid-template-columns: 200px 1fr;
-        grid-auto-rows: minmax(100px, auto);
-        grid-gap: 20px;
+
+        @media (min-width: 1600px) {
+          grid-template-columns: 200px 1fr;
+          grid-auto-rows: minmax(100px, auto);
+          grid-gap: 20px;
+        }
 
 
         .poster {
@@ -133,12 +139,18 @@
       }
       section {
         display: grid;
-        grid-template-columns: repeat(5, 150px);
-        grid-gap: 20px;
+
+        @media (min-width: 1600px) {
+          grid-template-columns: repeat(5, 150px);
+          grid-gap: 20px;
+        }
 
         .person {
           display: grid;
-          grid-template-rows: 200px 20px 20px;
+
+          @media (min-width: 1600px) {
+            grid-template-rows: 200px 20px 20px;
+          }
 
           &-profile {
             display: inline-block;
@@ -169,8 +181,11 @@
 
     &-data {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
+
+      @media (min-width: 1600px) {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+      }
 
       dl {
         margin: 0;
