@@ -136,6 +136,10 @@
       // use css to select the first four item and hide the rest
       h2 {
         text-transform: capitalize;
+        span {
+          cursor: pointer;
+          font-size: small;
+        }
       }
       section {
         display: grid;

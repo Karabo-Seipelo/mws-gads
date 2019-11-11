@@ -21,8 +21,8 @@ export class MovieDetailsComponent implements OnInit {
   similarMoviesSeeAll = false;
 
   seeMore = (value) => {
-    console.log('click: ', !value);
-    return value = !value;
+    value.classList.toggle("more");
+    console.log('click: ', value);
   }
 
   getImage =  (image) => {

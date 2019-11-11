@@ -78,9 +78,9 @@
         <div *ngIf="casts && casts.length > 0" class="movie-details-cast-crew-more">
             <div class="movie-details-cast">
                 <header>
-                    <h2 (click)="seeMore(castSeeAll)">featured cast</h2>
+                    <h2>featured cast <span (click)="seeMore(castsList)">see more</span></h2>
                 </header>
-                <section>
+                <section #castsList>
                     <ng-container *ngFor="let cast of casts; let i=index">
                         <div class="person">
                             <div class="cast-profile" [ngStyle]="getImage({
@@ -95,9 +95,9 @@
             </div>
             <div *ngIf="crews && crews.length > 0" class="movie-details-crew">
                 <header>
-                    <h2>featured crew</h2>
+                    <h2>featured crew <span (click)="seeMore(crewList)">see more</span></h2>
                 </header>
-                <section>
+                <section #crewList>
                     <ng-container *ngFor="let crew of crews; let i=index">
                         <div class="person" [hidden]="i > 5">
                             <div class="crew-profile" [ngStyle]="getImage({
@@ -112,9 +112,9 @@
             </div>
             <div *ngIf="similarMovies && similarMovies.length > 0" class="movie-details-more">
                 <header>
-                  <h2>People also liked</h2>
+                  <h2>People also liked <span (click)="seeMore(movieList)">see more</span></h2>
                 </header>
-                <section>
+                <section #movieList>
                     <ng-container *ngFor="let movie of similarMovies; let i=index">
                         <div>
                             <div class="crew-profile" [ngStyle]="getImage({
