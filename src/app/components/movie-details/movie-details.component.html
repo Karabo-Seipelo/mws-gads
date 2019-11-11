@@ -1,6 +1,50 @@
-
 <article>
-    <header class="movie" *ngIf="movie">
+    <section class="movie-details-summary">
+        <div class="movie-details-summary-poster">
+            <div [ngStyle]="getImage({
+                size: 'w500',
+                file: movie?.poster_path
+            })"></div>
+            <!-- poster -->
+            <!-- rating -->
+        </div>
+        <div class="movie-details-summary-content">
+            <h1>{{movie.title}}</h1>
+            <ul class="movie-details-summary-content-genre">
+                <li *ngFor="let genre of movie.genres">
+                    {{genre.name}}
+                </li>
+            </ul>
+            <p>{{movie.overview}}</p>
+        </div>
+    </section>
+    <section class="movie-casts">
+        <h2>Cast</h2>
+        <ng-container *ngFor="let cast of casts; let i=index">
+            <div class="person">
+                <div class="cast-profile" [ngStyle]="getImage({
+                    size: 'w200',
+                    file: cast?.profile_path
+                })"></div>
+                <strong>{{cast.name}}</strong>
+                <span>{{cast.character}}</span>
+            </div>
+        </ng-container>
+    </section>
+    <section class="movie-crew">
+        <h2>Crew</h2>
+        <ng-container *ngFor="let crew of crews; let i=index">
+            <div class="person" [hidden]="i > 5">
+                <div class="crew-profile" [ngStyle]="getImage({
+                    size: 'w200',
+                    file: crew?.profile_path
+                })"></div>
+                <strong>{{crew.name}}</strong>
+                <span>{{crew.job}}</span>
+            </div>
+        </ng-container>
+    </section>
+    <!-- <header class="movie" *ngIf="movie">
         <div class="featured" [ngStyle]="getImage({
             size: 'original',
             file: movie?.backdrop_path
@@ -127,6 +171,6 @@
                 </section>
             </div>
         </div>
-    </section>
+    </section> -->
 </article>
 
